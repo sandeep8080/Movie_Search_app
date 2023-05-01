@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import { useState, useEffect } from "react";
+import "./App.css";
+import { SEARCH_URL } from "./utils/constants";
+import Layout from "./components/layout";
+import AppHeader from "./components/header";
+import AppFooter from "./components/footer";
+import SearchBox from "./components/searchBox/SearchBox";
+import MovieCard from "./components/movieCard/MovieCard";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { searchText, setSearchText } = useState("");
+
+  const handleChange = (evt) => {
+    const { value } = evt.target;
+    console.log(evt.target.value);
+    setSearchText(value);
+  };
+
+// TODO: Implement the useFetch hook and get the data from the api s='Search Value'
+  useEffect(() => {
+    const { data, status, loading, error } = useFetch(SEARCH_URL);
+  }, [searchText]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Layout>
+        <AppHeader />
+        <main>
+          <SearchBox handleChange={handleChange} />
+          <MovieCard />
+        </main>
+        <AppFooter />
+      </Layout>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,5 +1,5 @@
 const MovieCard = () => {
-  return <>Movie Card Component</>;
+  return <div>Movie Card Component</div>;
 };
 
 export default MovieCard;
