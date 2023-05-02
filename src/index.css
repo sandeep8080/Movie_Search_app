@@ -4,10 +4,26 @@
   background-color: #070608;
   margin:0 auto;
   padding: 0.15em;
- text-align: center;
+  text-align: center;
+
+  /* COLORS */
  --secondayBackground: #2E3642;
  --thirdBackground:#5E6465;
  --primaryButton:#1436A8;
+
+ /* PADDINGS  */
+ --pd-xs: 0.10em;
+ --pd-s:0.25em;
+ --pd-m:0.5em;
+ --pd-l:0.75em;
+ --pd-xl:1em;
+
+ /* MARGINS  */
+ --mg-xs: 0.10em;
+ --mg-s:0.25em;
+ --mg-m:0.5em;
+ --mg-l:0.75em;
+ --mg-xl:1em;
 }
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
